@@ -23,3 +23,10 @@ def meta_keywords(str_file):
 	for word, count in c.most_common():
 		if len(word) > (word_length_min-1) and count > (word_count_min-1) and word not in nogo_list: wordlist.append(word)
 	return string.join(wordlist, ',')
+
+import lxml.html
+from lxml.cssselect import CSSSelector
+
+def meta_description(str_file):
+	tree = lxml.html.fromstring(str_file)
+	return tree.cssselect('p#meta_description')[0].text_content()
