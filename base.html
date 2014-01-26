@@ -2,7 +2,7 @@
 <head>
 <title>Core Site - {% block title %}{% endblock %}</title>
 
-<meta name="description" content="{{ description|safe }}" />
+{% if description|length > 0 %}<meta name="description" content="{{ description|safe }}" />{% endif %}
 <meta name="keywords" content="{{ keys }}" />
 
 </head>
